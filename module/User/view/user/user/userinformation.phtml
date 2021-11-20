@@ -1,0 +1,38 @@
+<main role="main" class="container">
+    <?php foreach ($this->user as $user):?>
+        <label for="firstname">Активность</label>
+        <input class="form-control" type="text" id ="active" placeholder="<?php if ( $this->escapeHtml($user->active) == 2) echo "Yes"; else echo "No";?>"readonly>
+
+        <label for="firstname">Администратор</label>
+        <input class="form-control" type="text" id ="active" placeholder="<?php if ( $this->escapeHtml($user->admin) == 2) echo "Yes"; else echo "No";?>"readonly>
+
+        <label class="mt" for="firstname">Фамилия</label>
+        <input class="form-control" type="text" id ="firstname" placeholder="<?php echo $this->escapeHtml($user->firstname);?>"readonly>
+
+        <label class="mt" for="lastname">Имя</label>
+        <input class="form-control" type="text" id ="lastname" placeholder="<?php echo $this->escapeHtml($user->lastname);?>"readonly>
+
+        <label class="mt" for="patronymic">Отчество</label>
+        <input class="form-control" type="text" id ="patronymic" placeholder="<?php echo $this->escapeHtml($user->patronymic);?>"readonly>
+
+        <label class="mt" for="gender">Пол</label>
+        <input class="form-control" type="text" id ="gender" placeholder="<?php if ( $this->escapeHtml($user->gender) == 2) echo "Male"; else echo "Female"; ?>
+        "readonly>
+
+        <label class="mt" for="bithday">Дата рождения</label>
+        <input class="form-control" type="text" id ="bithday" placeholder="<?php echo $this->escapeHtml($user->bithday);?>"readonly>
+
+        <label class="mt" for="position">Должность</label>
+        <input class="form-control" type="text" id ="position" placeholder="<?php echo $this->escapeHtml($user->position);?>"readonly>
+
+        <label class="mt" for="skype">Skype</label>
+        <input class="form-control" type="text" id ="skype" placeholder="<?php echo $this->escapeHtml($user->skype);?>"readonly>
+
+        <label class="mt" for="telephone">Телефон</label>
+        <input class="form-control" type="text" id ="telephone" placeholder="<?php echo $this->escapeHtml($user->telephone);?>"readonly>
+
+        <label class="mt" for="email">Email</label>
+        <input class="form-control" type="text" id ="email" placeholder="<?php echo $this->escapeHtml($user->email);?>"readonly>
+    <?php endforeach?>
+    <a href="<?php echo $this->url($this->route, ['action'=>'changeuserinformation', 'id' => $this->userId])?>">Изменить</a>
+</main>

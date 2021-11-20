@@ -1,0 +1,13 @@
+<?= $this->headLink()->prependStylesheet($this->basePath('css/singin.css'))?>
+<body class="text-center">
+<?php
+$form = $this->form;
+$form->prepare();
+echo $this->form()->openTag($form);?>
+    <p><?php echo $this->formRow($form->get('login'));?></p>
+    <p><?php echo $this->formRow($form->get('password'));?></p>
+    <p><?php echo $this->formRow($form->get('submit'));?></p>
+    <p><?php echo $this->formRow($form->get('submitRegistration'));?>
+        <?php echo $this->formRow($form->get('submitRecoveryPassword'));?></p>
+<?php echo $this->form()->closeTag();?>
+</body>

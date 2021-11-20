@@ -1,0 +1,14 @@
+<?= $this->headLink()->prependStylesheet($this->basePath('css/singin.css'))
+?>
+<body class="text-center">
+ <form class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal">Create new position</h1>
+    <?php $form = $this->form;
+    $form->prepare();
+    echo $this->form()->openTag($form);
+    echo $this->formRow($form->get('position'));
+    echo $this->formSubmit($form->get('submit'));
+    echo $this->formSubmit($form->get('submitCancel'));
+    echo $this->form()->closeTag();?>
+ </form>
+</body>

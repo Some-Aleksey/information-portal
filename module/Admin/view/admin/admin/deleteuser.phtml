@@ -1,0 +1,14 @@
+<?= $this->headLink()->prependStylesheet($this->basePath('css/singin.css'))?>
+<body class="text-center">
+<form class="form-signin">
+    <h1 class="h4 mb-3 font-weight-normal">Delete this user?</h1>
+    <div>
+        <?php $form = $this->form;
+        $form->prepare();
+        echo $this->form()->openTag($form);
+        echo $this->formSubmit($form->get('submit'));
+        echo $this->formSubmit($form->get('submitCancel'));
+        echo $this->form()->closeTag();?>
+    </div>
+</form>
+</body>
