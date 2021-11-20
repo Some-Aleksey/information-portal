@@ -1,0 +1,70 @@
+<main role="main" class="container">
+    <?php
+    $form = $this->form;
+    $form->prepare();
+    echo $this->form()->openTag($form);
+    echo $this->formHidden($form->get('id'));?>
+    <form>
+        <div class="form-row">
+            <div class="col">
+                <?php echo $this->formRow($form->get('position')); ?>
+            </div>
+            <div class="col">
+                <?php echo $this->formRow($form->get('gender')); ?>
+            </div>
+            <div class="col">
+                <?php echo $this->formRow($form->get('older'));?>
+            </div>
+            <div class="col">
+                <?php echo $this->formRow($form->get('under'));?>
+            </div>
+            <div class="col">
+                <?php echo $this->formRow($form->get('name'));?>
+            </div>
+            <div>
+                <?php echo $this->formSubmit($form->get('submit'));?>
+            </div>
+        </div>
+    </form>
+    <?php echo $this->form()->closeTag();?>
+    <table class="table mt-3">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ФИО</th>
+            <th scope="col">Пол</th>
+            <th scope="col">Должность</th>
+            <th scope="col">Возраст</th>
+            <th scope="col">Телефон</th>
+            <th scope="col">Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php $id = 0; foreach ($this->users as $user) : ?>
+            <tr>
+                <td><?php echo ++$id;?></td>
+                <td>
+                    <?php echo $this->escapeHtml($user->lastname); echo " ";
+                    echo $this->escapeHtml($user->firstname); echo " ";
+                    echo $this->escapeHtml($user->patronymic);?>
+                </td>
+                <td>
+                    <?php if ( $this->escapeHtml($user->gender) == 2) echo "Male"; else echo "Female"; ?>
+                </td>
+                <td><?php echo $this->escapeHtml($user->position);?></td>
+                <td><?php echo $this->escapeHtml($user->bithday);?></td>
+                <td><?php echo $this->escapeHtml($user->telephone);?></td>
+                <td><?php echo $this->escapeHtml($user->email);?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+        </ul>
+    </nav>
+</main>

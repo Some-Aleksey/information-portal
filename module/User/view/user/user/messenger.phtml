@@ -1,0 +1,23 @@
+<?= $this->headLink()->prependStylesheet($this->basePath('css/messager.css')) ?>
+<body>
+    <button class="btn btn-lg btn-dark margin-top"  type="button">Зaгрузить ещё</button>
+    <a class="btn-primary" href="<?php echo $this->listMessagesUrl?>" role="button">
+        <button class="btn btn-lg btn-dark margin-top"  type="button">Назад</button>
+    </a>
+    <?php foreach ($this->messages as $message) :?>
+    <div class="container darker">
+        <p><?php if ($this->interlocutorId == $message->senderId) echo "Sender: Interlocutor";
+        else echo "Sender: I";?></p>
+        <p><?php echo $this->escapeHtml($message->textMessage);?></p>
+        <span class="time-left"><?php echo $this->escapeHtml($message->dateSend);?></span>
+    </div>
+    <?php endforeach;?>
+    <div>
+        <?php $form = $this->form;
+        $form->prepare();
+        echo $this->form()->openTag($form);
+        echo $this->formRow($form->get('textMessage'));
+        echo $this->formSubmit($form->get('submit'));
+        echo $this->form()->closeTag();?>
+    </div>
+</body>

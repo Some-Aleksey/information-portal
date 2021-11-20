@@ -1,0 +1,29 @@
+<main role="main" class="container">
+    <table class="table mt-3">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Должность</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php $id=0; foreach ($this->positions as $position):?>
+            <tr>
+                <th scope="row"><?php echo ++$id;?></th>
+                <td><?php echo $this->escapeHtml($position->position)?></td>
+                <td><a href="<?php echo $this->url('admin', ['action'=>'changeposition', 'id' => $position->positionId]);?>">Change</a></td>
+                <td><a href="<?php echo $this->url('admin', ['action'=>'deleteposition', 'id' => $position->positionId]);?>">Delete</a></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <a href="<?php echo $this->url('admin', ['action'=>'createposition', 'id' => 0])?>">Create a new position</a>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+        </ul>
+    </nav>
+
+</main>

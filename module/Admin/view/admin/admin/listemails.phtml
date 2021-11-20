@@ -1,0 +1,32 @@
+ <main role="main" class="container">
+    <table class="table mt-3">
+        <thead class="thead-light">
+        <?php $form = $this->form;
+        $form->prepare();
+        echo $this->form()->openTag($form);
+        echo $this->formSubmit($form->get('submitCancel'));
+        echo $this->form()->closeTag();?>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Emails</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php $id=0; foreach ($this->emails as $email):?>
+            <tr>
+                <th scope="row"><?php echo ++$id;?></th>
+                <td><?php echo $this->escapeHtml($email->email)?></td>
+                <td><a href="<?php echo $this->url($this->route, ['action'=>'deleteemail', 'id' => $email->id, 'dopId' => $email->emailId]); ?>">Delete</a></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    <a href="<?php echo $this->url($this->route, ['action'=>'addemail', 'id' => $email->id, 'dopId' => 0])?>">Add a new email</a>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+        </ul>
+    </nav>
+</main>

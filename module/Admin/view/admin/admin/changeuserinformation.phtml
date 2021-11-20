@@ -1,0 +1,28 @@
+<body class="bg-light">
+<div class="container">
+    <div class="py-5">
+        <h2>Внестите изменения</h2>
+    </div>
+    <?php
+    $form = $this->form;
+    $form->prepare();
+    echo $this->form()->openTag($form);?>
+    <p><?php echo $this->formRow($form->get('active'));?></p>
+    <p><?php echo $this->formRow($form->get('position'));?></p>
+    <p><?php echo $this->formRow($form->get('adminCheck'));?></p>
+    <p><?php echo $this->formRow($form->get('lastname'));?></p>
+    <p><?php echo $this->formRow($form->get('firstname'));?></p>
+    <p><?php echo $this->formRow($form->get('patronymic'));?></p>
+    <p><?php echo $this->formRow($form->get('gender'));?></p>
+    <p><?php echo $this->formRow($form->get('bithday'));?></p>
+    <p><?php echo $this->formRow($form->get('skype'));?></p>
+    <p><a href="<?php echo $this->url('admin', ['action'=>'listtelephones', 'id' => $this->userId]);?>">Telephones</a></p>
+    <p><a href="<?php echo $this->url('admin', ['action'=>'listemails', 'id' => $this->userId]);?>">Emails</a></p>
+    <p><?php echo $this->formSubmit($form->get('submit'));
+        echo $this->formSubmit($form->get('submitCancel'));?></p>
+    <hr class="mb-4">
+    <p><?php echo $this->formSubmit($form->get('submitChangePassword'));?></p>
+    <hr class="mb-4">
+    <p><?php echo $this->formSubmit($form->get('submitDelete'));?></p>
+</div>
+</body>
